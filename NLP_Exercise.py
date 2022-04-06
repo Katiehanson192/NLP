@@ -9,6 +9,8 @@ from textblob import TextBlob, Word
 import nltk 
 from pathlib import Path
 import pandas as pd
+from wordcloud import WordCloud
+import imageio
 
 #1) Using nyc_trends information, create a bar chart of the top 10 topics based on their corresponding tweet volume.
 
@@ -49,3 +51,26 @@ plt.show()
 2) Create a Word Cloud of all topics with over 20,000 tweet volume. 
     The size of the word (topic) should be based on their tweet volume.
 '''
+#tweets_sorted = all tweets sorted based on highest number
+
+tweets_dict = dict(tweets_sorted)
+
+over_20000 = []
+
+for value in tweets_dict:
+    if tweets_dict[value] > 20000:
+        over_20000.append((value, tweets_dict[value]))
+#print(type(over_20000))
+
+#making the word cloud
+mask_image = imageio.imread('twitter_mask1.png')
+
+wordcloud = WordCloud(colormap='RdYlBu', mask = mask_image,  background_color='white', contour_width = 3, contour_color='black') #Why isn't there a color map that better matches the NY colors???
+
+over_20000 = str(over_20000)
+
+wordcloud = wordcloud.generate(over_20000)
+
+wordcloud = wordcloud.to_file('NYC_Twitter_Trends_WordCloud.png')
+plt.imshow(wordcloud)
+
