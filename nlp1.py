@@ -5,7 +5,7 @@ text = "Today is a beautiful day. Tomorrow looks like bad weather."
 
 blob = TextBlob(text)
 
-#print(blob)
+print(blob)
 
 sentences = blob.sentences #creates a sentence object, puts sentences in a list so their interable
 
@@ -13,7 +13,7 @@ sentences = blob.sentences #creates a sentence object, puts sentences in a list 
 
 words = blob.words
 
-#print(words)
+print(words)
 
 #print(blob.tags) #list of each word + corresponding part of speech (ex: noun, verb, etc.)
                  #nn = noun, vbz = verb,JJ = adjective, DT = determinate, NNP = Proper Singular Noun, IN = subordinating conjunction

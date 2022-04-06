@@ -13,9 +13,9 @@ from nltk.corpus import stopwords
 stops = stopwords.words("english")
 #print(stops) #prints out the list of "stop words" - these are the words that you may not want to be considered while doing text analysis
 
-blob = TextBlob("Today is a beautiful day.")
+blob = TextBlob("Today is a beautiful day.")  #textblob = puts words into a list
 
-#print(blob.words)
+#print(blob.words) 
 '''
 cleanlist = []
 for words in blob.words: #how to create a new list of words that don't include any of the words in stop words
@@ -27,7 +27,7 @@ print(cleanlist)
 cleanlist = [word for word in blob.words if word not in stops]
 #print(cleanlist)
 
-blob = TextBlob(Path("RomeoAndJuliet.txt").read_text()) 
+blob = TextBlob(Path("RomeoAndJuliet.txt").read_text())  
 
 
 #print(blob.word_counts["juliet"])
